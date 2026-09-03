@@ -1,0 +1,8 @@
+pandas
+numpy
+requests
+beautifulsoup4
+folium
+jupyter
+nbconvert
+

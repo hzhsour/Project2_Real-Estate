@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Synthetic rental listing fixture</title>
+</head>
+<body>
+  <p>This page is a synthetic local fixture for parser tests. It is not a real listing source.</p>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Residence",
+    "name": "1 Example Street, Richmond VIC 3121",
+    "url": "https://example.invalid/listing/1",
+    "address": {
+      "streetAddress": "1 Example Street",
+      "addressLocality": "Richmond",
+      "addressRegion": "VIC",
+      "postalCode": "3121",
+      "addressCountry": "AU"
+    },
+    "geo": {"latitude": -37.8183, "longitude": 144.9988},
+    "numberOfBedrooms": 2,
+    "numberOfBathroomsTotal": 1,
+    "numberOfParkingSpaces": 1,
+    "additionalType": "Apartment",
+    "offers": {"price": 620, "priceCurrency": "AUD", "priceSpecification": {"unitText": "WEEK"}}
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Residence",
+    "name": "2 Sample Road, Geelong VIC 3220",
+    "url": "https://example.invalid/listing/2",
+    "address": {
+      "streetAddress": "2 Sample Road",
+      "addressLocality": "Geelong",
+      "addressRegion": "VIC",
+      "postalCode": "3220",
+      "addressCountry": "AU"
+    },
+    "geo": {"latitude": -38.1499, "longitude": 144.3617},
+    "numberOfBedrooms": 3,
+    "numberOfBathroomsTotal": 2,
+    "numberOfParkingSpaces": 2,
+    "additionalType": "House",
+    "offers": {"price": 540, "priceCurrency": "AUD", "priceSpecification": {"unitText": "WEEK"}}
+  }
+  </script>
+
+  <article class="listing-card">
+    <a href="https://example.invalid/listing/3"><h2>3 Test Avenue, Ballarat VIC 3350</h2></a>
+    <p>$480 per week</p>
+    <p>3 beds 1 bath 2 parking</p>
+  </article>
+</body>
+</html>
+
