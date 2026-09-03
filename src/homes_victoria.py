@@ -67,3 +67,75 @@ def load_moving_annual_rents(
         rents = rents.loc[rents["period_end"] <= pd.Timestamp(end_period)]
 
     return rents.reset_index(drop=True)
+
+
+def load_quarterly_benchmarks(
+    workbook_path: str | Path,
+    *,
+    snapshot_period: str = "Sep 2025",
+) -> pd.DataFrame:
+    """Extract useful regional and property-type benchmarks from Table 1/3.
+
+    These are aggregate Homes Victoria reference values, not extra listing
+    records. Table 2 is deliberately not parsed because its statistical
+    regions are not the same geography as the project's SA2 polygons.
+    """
+
+    workbook_path = Path(workbook_path)
+
+    def _number(value: object) -> object:
+        parsed = pd.to_numeric(pd.Series([value]), errors="coerce").iloc[0]
+        return parsed if pd.notna(parsed) else pd.NA
+
+    records: list[dict[str, object]] = []
+
+    table1 = pd.read_excel(workbook_path, sheet_name="Table 1", header=None)
+    for row in range(3, table1.shape[0]):
+        label = table1.iat[row, 0]
+        median = _number(table1.iat[row, 1])
+        if pd.isna(label) or pd.isna(median):
+            continue
+        label = str(label).strip()
+        if label not in {"Melbourne", "Regional Victoria"}:
+            continue
+        region_group = (
+            "Metropolitan Melbourne" if label == "Melbourne" else "Regional Victoria"
+        )
+        records.append(
+            {
+                "snapshot_period": snapshot_period,
+                "benchmark_group": "geography",
+                "region_group": region_group,
+                "benchmark_label": region_group,
+                "median_weekly_rent_aud": median,
+                "quarterly_change": _number(table1.iat[row, 3]),
+                "annual_change": _number(table1.iat[row, 4]),
+            }
+        )
+
+    table3 = pd.read_excel(workbook_path, sheet_name="Table 3", header=None)
+    current_group: str | None = None
+    for row in range(3, table3.shape[0]):
+        label = table3.iat[row, 0]
+        if pd.isna(label):
+            continue
+        label = str(label).strip()
+        median = _number(table3.iat[row, 1])
+        if label in {"Metropolitan Melbourne", "Regional Victoria"}:
+            current_group = label
+            continue
+        if current_group is None or pd.isna(median):
+            continue
+        records.append(
+            {
+                "snapshot_period": snapshot_period,
+                "benchmark_group": "property_type",
+                "region_group": current_group,
+                "benchmark_label": label,
+                "median_weekly_rent_aud": median,
+                "quarterly_change": _number(table3.iat[row, 2]),
+                "annual_change": _number(table3.iat[row, 3]),
+            }
+        )
+
+    return pd.DataFrame.from_records(records)

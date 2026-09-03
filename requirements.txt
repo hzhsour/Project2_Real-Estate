@@ -6,3 +6,4 @@ folium
 jupyter
 nbconvert
 openpyxl
+geopandas

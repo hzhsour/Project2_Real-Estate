@@ -1,11 +1,12 @@
-"""Load the three Victoria rental data layers used by Project 2."""
+"""Load the Victoria rental data layers used by Project 2."""
 
 from pathlib import Path
 
 import pandas as pd
 
-from .homes_victoria import load_moving_annual_rents
+from .homes_victoria import load_moving_annual_rents, load_quarterly_benchmarks
 from .kaggle_data import load_kaggle_rental_market
+from .sa2 import add_sa2_to_listings, load_abs_sa2_boundaries
 
 
 def load_victoria_data_layers(project_root: str | Path) -> dict[str, pd.DataFrame]:
@@ -36,11 +37,22 @@ def load_victoria_data_layers(project_root: str | Path) -> dict[str, pd.DataFram
         / "data/external/anglicare_victoria"
         / "anglicare_ras_victoria_2022_2026_summary.csv"
     )
+    benchmarks = load_quarterly_benchmarks(
+        project_root
+        / "data/external/homes_victoria/quarterly_tables_sep_2025.xlsx"
+    )
+    sa2_boundaries = load_abs_sa2_boundaries(
+        project_root
+        / "data/external/abs_asgs/SA2_2021_AUST_GDA2020/SA2_2021_AUST_GDA2020.shp"
+    )
+    listings = add_sa2_to_listings(listings, sa2_boundaries)
 
     return {
         "kaggle_listings_vic_2026": listings,
         "homes_victoria_suburb_history": history,
         "anglicare_affordability": affordability,
+        "homes_victoria_quarterly_benchmarks": benchmarks,
+        "abs_sa2_boundaries": sa2_boundaries,
     }
 
 

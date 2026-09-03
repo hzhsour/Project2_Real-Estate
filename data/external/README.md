@@ -52,6 +52,47 @@ to 2025 Q3 slice in `data/processed/homes_victoria_rents_2024_2025.csv`.
 - Main fields: `state`, `region`, `suburb`, `property_type`, `period_end`,
   `new_lease_count`, and `median_weekly_rent_aud`.
 
+### Homes Victoria Quarterly Data Tables
+
+The [Rental Report quarterly data tables](https://discover.data.vic.gov.au/dataset/rental-report-quarterly-data-tables)
+are the official aggregate companion to the suburb time series. The project
+uses the September 2025 workbook only for Table 1 overall metropolitan/
+regional benchmarks and Table 3 property-type benchmarks. These values are
+shown as reference context for a listing when its ABS geography and property
+type have an exact supported match; they are not appended as additional
+listings. Table 2 is not used because its statistical regions are not SA2s.
+
+- Raw file: `data/external/homes_victoria/quarterly_tables_sep_2025.xlsx`.
+- Downloaded: 2026-09-03.
+- Provider: Homes Victoria; the DataVic record identifies quarterly updates
+  and a Creative Commons Attribution 4.0 International licence.
+- Parser: `src/homes_victoria.py` (`load_quarterly_benchmarks`).
+- Processed output: `homes_victoria_quarterly_benchmarks` in the integration
+  loader.
+
+### ABS ASGS 2021 SA2 Digital Boundaries
+
+The [ABS ASGS Edition 3 digital boundary files](https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files)
+provide the official 2021 SA2 polygons in GDA2020. The project filters the
+shapefile to Victoria (`STE_CODE21 == 2`), converts it to WGS84 for Folium,
+and assigns each of the existing 1,118 listing coordinates to an SA2 using a
+point-in-polygon join.
+
+- Raw archive: `data/external/abs_asgs/SA2_2021_AUST_SHP_GDA2020.zip`.
+- Extracted shapefile: `data/external/abs_asgs/SA2_2021_AUST_GDA2020/`.
+- Downloaded: 2026-09-03.
+- Main fields used: `SA2_CODE21`, `SA2_NAME21`, `SA3_NAME21`, `SA4_NAME21`,
+  `GCC_NAME21`, and `STE_CODE21`.
+- Parser/assignment: `src/sa2.py`.
+
+### Evaluated but excluded: Victoria State GEO & Postcodes
+
+The [Kaggle Victoria State GEO & Postcodes dataset](https://www.kaggle.com/datasets/aasirwaseer/victoria-state-geo-and-postcodes)
+contains postcode/locality lookup fields and representative coordinates. It
+does not add listing records, listing rents, or official SA2 polygons, and the
+current 1,118 listings already have coordinates. It is therefore not merged
+into the map, avoiding duplicated or invented property points.
+
 ### Anglicare Victoria Rental Affordability Snapshot
 
 The [2026 Anglicare Victoria Rental Affordability Snapshot](https://www.anglicarevic.org.au/research/victorian-rental-affordability-snapshot-2026/)
