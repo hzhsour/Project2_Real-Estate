@@ -19,9 +19,9 @@ __pycache__/
 .pytest_cache/
 
 .venv/
+project2_Mast30034/
 venv/
 env/
 
 .DS_Store
 Thumbs.db
-

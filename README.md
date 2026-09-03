@@ -31,7 +31,7 @@ The local HTML fixture is synthetic and is included only to test the parser. It 
 ## Setup
 
 ```bash
-python -m venv .venv
+python -m venv project2_Mast30034
 ```
 
 Activate the environment and install the requirements:
@@ -66,4 +66,3 @@ The Sprint 1 listing scrape is a current asking-rent snapshot. By itself, it can
 - Sprint 4: build a baseline and interpretable model; define the three-year target.
 - Sprint 5: compare predictions with business-oriented liveability and affordability metrics.
 - Sprint 6: report three-year predictions and answer the three business questions.
-
