@@ -14,8 +14,9 @@ Sprint 1 focuses on:
 
 - starting the property-listing collection plan;
 - defining a reproducible property schema;
-- parsing an authorised HTML source or course-provided export; and
-- producing a property-location map.
+- loading an authorised external listing export while the direct portal source
+  is being confirmed; and
+- producing a property-location map for Victoria.
 
 The local HTML fixture is synthetic and is included only to test the parser. It is not analysis data.
 
@@ -23,6 +24,7 @@ The local HTML fixture is synthetic and is included only to test the parser. It 
 
 - `notebooks/01_sprint1_web_scraping_and_mapping.ipynb`: Sprint 1 walkthrough and parser/map smoke test.
 - `src/scraper.py`: source-agnostic listing parser, robots check, and crawl helpers.
+- `src/kaggle_data.py`: adapter for the Kaggle rental snapshot used in Sprint 1.
 - `src/visualisation.py`: interactive property-location map.
 - `data/raw/`: local raw pages or downloaded files; large raw data are ignored by Git.
 - `data/external/`: external datasets and provenance notes.
@@ -49,10 +51,11 @@ jupyter notebook
 ## Sprint 1 workflow
 
 1. Confirm an authorised property source with the tutor or use the supplied course skeleton/API/export.
-2. Record the source URL, access date, terms/robots decision, and any attribution in `data/external/README.md`.
-3. Run the parser on a small sample first and check rent, bedrooms, bathrooms, parking, suburb, and coordinates.
-4. Save raw inputs locally and keep generated outputs out of GitHub.
-5. Produce the location map and show it at the weekly checkpoint.
+2. Record the source URL, access date, licence, and attribution in `data/external/README.md`.
+3. Use `src/kaggle_data.py` to load the Kaggle snapshot and filter Victoria.
+4. Check rent, bedrooms, bathrooms, parking, suburb, and coordinates.
+5. Save raw inputs locally and keep generated outputs out of GitHub.
+6. Produce the location map and show it at the weekly checkpoint.
 
 The live crawler is deliberately opt-in. It checks `robots.txt` and raises an error when automated access is not allowed; it does not bypass bot controls, rate limits, login walls, or other access restrictions. Do not run it against a source unless your group has permission to do so.
 
