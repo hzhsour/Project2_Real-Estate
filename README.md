@@ -28,7 +28,7 @@ The local HTML fixture is synthetic and is included only to test the parser. It 
 - `src/kaggle_data.py`: adapter for the Kaggle rental snapshot used in Sprint 1.
 - `src/homes_victoria.py`: parser for the Homes Victoria Excel time series.
 - `src/integration.py`: loader and exporter for all three data layers.
-- `src/visualisation.py`: interactive property-location map.
+- `src/visualisation.py`: simple and enriched interactive property-location maps.
 - `data/raw/`: local raw pages or downloaded files; large raw data are ignored by Git.
 - `data/external/`: external datasets and provenance notes.
 - `data/processed/`: generated tables and maps; ignored by Git.
@@ -58,7 +58,10 @@ jupyter notebook
 3. Use `src/kaggle_data.py` to load the Kaggle snapshot and filter Victoria.
 4. Check rent, bedrooms, bathrooms, parking, suburb, and coordinates.
 5. Save raw inputs locally and keep generated outputs out of GitHub.
-6. Produce the location map and show it at the weekly checkpoint.
+6. Produce `data/processed/sprint1_enriched_victoria_property_map.html` and show
+   the location map at the weekly checkpoint. The enriched version clusters
+   markers, colours them by asking-rent band, supports property-type layers,
+   and shows Homes Victoria suburb history as labelled context.
 
 The live crawler is deliberately opt-in. It checks `robots.txt` and raises an error when automated access is not allowed; it does not bypass bot controls, rate limits, login walls, or other access restrictions. Do not run it against a source unless your group has permission to do so.
 
