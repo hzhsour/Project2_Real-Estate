@@ -23,8 +23,11 @@ The local HTML fixture is synthetic and is included only to test the parser. It 
 ## Repository structure
 
 - `notebooks/01_sprint1_web_scraping_and_mapping.ipynb`: Sprint 1 walkthrough and parser/map smoke test.
+- `notebooks/02_data_integration_and_history.ipynb`: integrated Victoria listing, historical-rent, and affordability layers.
 - `src/scraper.py`: source-agnostic listing parser, robots check, and crawl helpers.
 - `src/kaggle_data.py`: adapter for the Kaggle rental snapshot used in Sprint 1.
+- `src/homes_victoria.py`: parser for the Homes Victoria Excel time series.
+- `src/integration.py`: loader and exporter for all three data layers.
 - `src/visualisation.py`: interactive property-location map.
 - `data/raw/`: local raw pages or downloaded files; large raw data are ignored by Git.
 - `data/external/`: external datasets and provenance notes.
@@ -69,3 +72,11 @@ The Sprint 1 listing scrape is a current asking-rent snapshot. By itself, it can
 - Sprint 4: build a baseline and interpretable model; define the three-year target.
 - Sprint 5: compare predictions with business-oriented liveability and affordability metrics.
 - Sprint 6: report three-year predictions and answer the three business questions.
+
+## Integrated data layers
+
+The project keeps three related but non-identical tables: individual 2026
+Kaggle listings for property-level features, Homes Victoria suburb-quarter
+history for temporal modelling, and Anglicare annual snapshots for affordability
+and supply context. The integration notebook documents the keys and checks
+without incorrectly concatenating different observational units.

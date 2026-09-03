@@ -10,6 +10,9 @@ data/processed/*
 *.parquet
 *.csv
 *.zip
+*.xlsx
+*.xls
+*.pdf
 *.db
 *.sqlite
 
