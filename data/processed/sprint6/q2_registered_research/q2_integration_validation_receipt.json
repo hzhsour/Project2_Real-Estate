@@ -1,0 +1,497 @@
+{
+  "receipt_version": 1,
+  "task": "MAST30034 Project 2 Sprint 6 Q2 integration",
+  "status": "PASS",
+  "created_at_local": "2026-10-16T21:40:04.947278+11:00",
+  "files_changed": [
+    {
+      "path": "notebooks/06_sprint6_final_results.ipynb",
+      "operation": "edited in place; Q2 sections 4-7 and Q2 conclusion/integration cells updated; Q1/Q3 cells preserved",
+      "sha256": "a25391c31d90e583f1b4a2b1f738ce05bd780d42d5254307774614f40944d100",
+      "bytes": 621760
+    }
+  ],
+  "files_added": [
+    {
+      "path": "data/processed/sprint6/q2_registered_research/ridge21_3y_forecast.csv",
+      "sha256": "7028dfa7f8f5f85ac9d44453739b761ab665004a0b72a2a94078473109a77e78",
+      "bytes": 33988
+    },
+    {
+      "path": "data/processed/sprint6/q2_registered_research/ridge18_5y_forecast.csv",
+      "sha256": "6c289262973ea542fca709f2e965adaac1d9605faffc05b625be9f7c364cdf43",
+      "bytes": 33890
+    },
+    {
+      "path": "data/processed/sprint6/q2_registered_research/q2_research_provenance.json",
+      "sha256": "4cb39f2dd6be3c0b551cb259ec8cb7c5d0f8ddf3443b164a2212ea819f153493",
+      "bytes": 18394
+    },
+    {
+      "path": "data/processed/sprint6/q2_registered_research/q2_integration_validation_receipt.json",
+      "created_by": "this receipt"
+    }
+  ],
+  "notebook_execution": {
+    "status": "success",
+    "interpreter": "C:\\Users\\86180\\miniforge3\\envs\\mast30034\\python.exe",
+    "method": "nbconvert executed a temporary copy from the repository root with a temporary kernelspec pointing at the specified interpreter; only the verified executed notebook was then saved to the original path.",
+    "code_cells": 8,
+    "errors": [],
+    "actual_kernel_path_verified": true,
+    "q2_all_cells_passed": true,
+    "q2_final_validation_table_all_true": true,
+    "q1_q3_display_payloads_identical": true,
+    "temporary_files_cleaned": true,
+    "warning": "Windows ZeroMQ Proactor compatibility warning appeared; execution completed successfully."
+  },
+  "registered_forecasts": {
+    "issue_timestamp": "2026-10-16T15:30:02.627196+11:00",
+    "origin_reference_period": "2025-09-30",
+    "native_markets_each": 145,
+    "target_definition": "100 * (rent at t+h / rent at t - 1), cumulative growth percent",
+    "models": {
+      "3y": {
+        "candidate_id": "origin_centred_ridge21_12q",
+        "csv_candidate": "ridge21",
+        "issue_id": "q2-stage7-20261016T153002_a38bff6679e1-ridge21-12q",
+        "horizon_quarters": 12,
+        "target_end_date": "2028-09-30",
+        "forecast_csv": "ridge21_3y_forecast.csv",
+        "source_and_project_hashes_match": true,
+        "top10_markets": [
+          "Hamilton",
+          "Ballarat",
+          "Horsham",
+          "Portland",
+          "Wendouree-Alfredton",
+          "Sale-Maffra",
+          "Mount Clear-Buninyong",
+          "Ocean Grove-Barwon Heads",
+          "Wanagaratta",
+          "Benalla"
+        ],
+        "top10_count": 10,
+        "growth_summary": {
+          "mean_pct": -1.8031144938772627,
+          "median_pct": -3.1854832559223314,
+          "min_pct": -11.787446049084055,
+          "max_pct": 12.932781858678194,
+          "negative_count": 103,
+          "feature_domain_warning_markets": 145
+        }
+      },
+      "5y": {
+        "candidate_id": "origin_centred_ridge18_20q",
+        "csv_candidate": "ridge18",
+        "issue_id": "q2-stage7-20261016T153002_a38bff6679e1-ridge18-20q",
+        "horizon_quarters": 20,
+        "target_end_date": "2030-09-30",
+        "forecast_csv": "ridge18_5y_forecast.csv",
+        "source_and_project_hashes_match": true,
+        "top10_markets": [
+          "Hamilton",
+          "Ballarat",
+          "Horsham",
+          "Portland",
+          "Sale-Maffra",
+          "Wendouree-Alfredton",
+          "Mount Clear-Buninyong",
+          "Seymour",
+          "Wanagaratta",
+          "Corio"
+        ],
+        "top10_count": 10,
+        "growth_summary": {
+          "mean_pct": 13.52493079047773,
+          "median_pct": 12.550888565715114,
+          "min_pct": -1.4773403635180915,
+          "max_pct": 29.15027380287353,
+          "negative_count": 1,
+          "feature_domain_warning_markets": 145
+        }
+      }
+    },
+    "top10_vectors_match_frozen_stage7_issue_records": true,
+    "endpoint_growth_reconstruction_max_abs_error_lt_1e-9": true,
+    "stage7_manifest_ledger_config_and_original_forecast_hashes_verified": true
+  },
+  "historical_metric_reconciliation": {
+    "sample": {
+      "markets": 145,
+      "origins": 11,
+      "rows": 1595,
+      "origins_first": "2010-09-30",
+      "origins_last": "2020-09-30",
+      "targets_overlap": true,
+      "revised_data_vintages": true
+    },
+    "unit": "percentage points of cumulative growth error; mean tie-aware Top-10 hits per origin (not percentage accuracy)",
+    "matched_rows": [
+      {
+        "horizon_quarters": 12,
+        "candidate_id": "damped_11",
+        "label": "Damped Holt",
+        "growth_rmse_pp": 9.80418433056258,
+        "growth_mae_pp": 7.568350274972746,
+        "mean_bias_pp": -5.181219523218925,
+        "mean_tie_aware_top10_hits_per_origin": 0.8787878787878788,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 12,
+        "candidate_id": "drift_full",
+        "label": "Full-history Drift",
+        "growth_rmse_pp": 8.244740935790551,
+        "growth_mae_pp": 6.233312912135042,
+        "mean_bias_pp": 1.8621714736702621,
+        "mean_tie_aware_top10_hits_per_origin": 0.9848484848484848,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 12,
+        "candidate_id": "low_rent_rank",
+        "label": "Lower starting-rent ranking baseline",
+        "growth_rmse_pp": null,
+        "growth_mae_pp": null,
+        "mean_bias_pp": null,
+        "mean_tie_aware_top10_hits_per_origin": 3.3969696969696965,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 12,
+        "candidate_id": "ridge18",
+        "label": "Origin-centred Ridge18",
+        "growth_rmse_pp": 7.52857624600683,
+        "growth_mae_pp": 5.292715853989243,
+        "mean_bias_pp": -2.2905162023338512,
+        "mean_tie_aware_top10_hits_per_origin": 2.8181818181818183,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 12,
+        "candidate_id": "ridge21",
+        "label": "Origin-centred Ridge21",
+        "growth_rmse_pp": 7.536336515016514,
+        "growth_mae_pp": 5.315157857156388,
+        "mean_bias_pp": -2.2905162023338517,
+        "mean_tie_aware_top10_hits_per_origin": 2.8181818181818183,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 12,
+        "candidate_id": "theta_full",
+        "label": "Project-specific Theta approximation (OLS linear trend + SES, 50:50)",
+        "growth_rmse_pp": 7.937413677016374,
+        "growth_mae_pp": 5.503559785128686,
+        "mean_bias_pp": -2.2905162023338517,
+        "mean_tie_aware_top10_hits_per_origin": 2.015151515151515,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 20,
+        "candidate_id": "damped_11",
+        "label": "Damped Holt",
+        "growth_rmse_pp": 19.107192111971933,
+        "growth_mae_pp": 15.072227038104861,
+        "mean_bias_pp": -14.103624648719567,
+        "mean_tie_aware_top10_hits_per_origin": 0.9090909090909091,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 20,
+        "candidate_id": "drift_full",
+        "label": "Full-history Drift",
+        "growth_rmse_pp": 13.275259773737229,
+        "growth_mae_pp": 10.18119746530839,
+        "mean_bias_pp": -0.9045647925305363,
+        "mean_tie_aware_top10_hits_per_origin": 0.8636363636363636,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 20,
+        "candidate_id": "low_rent_rank",
+        "label": "Lower starting-rent ranking baseline",
+        "growth_rmse_pp": null,
+        "growth_mae_pp": null,
+        "mean_bias_pp": null,
+        "mean_tie_aware_top10_hits_per_origin": 3.8227272727272723,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 20,
+        "candidate_id": "ridge18",
+        "label": "Origin-centred Ridge18",
+        "growth_rmse_pp": 12.724105811067856,
+        "growth_mae_pp": 9.76395544461368,
+        "mean_bias_pp": -0.9045647925305363,
+        "mean_tie_aware_top10_hits_per_origin": 2.8636363636363638,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 20,
+        "candidate_id": "ridge21",
+        "label": "Origin-centred Ridge21",
+        "growth_rmse_pp": 12.815303639470006,
+        "growth_mae_pp": 9.853162771414148,
+        "mean_bias_pp": -0.9045647925305363,
+        "mean_tie_aware_top10_hits_per_origin": 2.8181818181818183,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 20,
+        "candidate_id": "theta_full",
+        "label": "Project-specific Theta approximation (OLS linear trend + SES, 50:50)",
+        "growth_rmse_pp": 14.662485872981902,
+        "growth_mae_pp": 10.374720490111498,
+        "mean_bias_pp": -8.197552741047915,
+        "mean_tie_aware_top10_hits_per_origin": 1.9545454545454546,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      }
+    ],
+    "extra_2021_2022_3y_check": {
+      "source_file": "stage5_extra_12q_metrics.csv",
+      "source_sha256": "29f2f575e6ff714c35bc8d5df7ef977abe6606f3fc4977f8509fa63b1c84a962",
+      "sample": {
+        "markets": 145,
+        "origins": 2,
+        "rows": 290,
+        "first_origin": "2021-09-30",
+        "last_origin": "2022-09-30"
+      },
+      "ridge_rows": [
+        {
+          "candidate_id": "ridge18",
+          "growth_rmse_pp": 25.448329241912194,
+          "growth_mae_pp": 24.059094731789095,
+          "mean_bias_pp": -24.059094731789095,
+          "mean_tie_aware_top10_hits_per_origin": 3.5,
+          "rows": 290,
+          "origins": 2,
+          "markets": 145,
+          "first_origin": "2021-09-30",
+          "last_origin": "2022-09-30"
+        },
+        {
+          "candidate_id": "ridge21",
+          "growth_rmse_pp": 25.30514860316869,
+          "growth_mae_pp": 24.05997667465964,
+          "mean_bias_pp": -24.059094731789095,
+          "mean_tie_aware_top10_hits_per_origin": 5.5,
+          "rows": 290,
+          "origins": 2,
+          "markets": 145,
+          "first_origin": "2021-09-30",
+          "last_origin": "2022-09-30"
+        }
+      ],
+      "ridge21_macro_component_share_of_total_mse_pct": 90.42
+    }
+  },
+  "geographic_reconciliation": {
+    "status_counts": {
+      "DIRECT_SOURCE_ATTRIBUTION": 118,
+      "EXCLUDED_BY_ORIGINAL_ELIGIBILITY": 1,
+      "FIXED_WEIGHT_PROXY": 25,
+      "NO_REGISTERED_SOURCE_FORECAST": 1
+    },
+    "production_display_groups": 145,
+    "weight_sensitivity": {
+      "12": {
+        "scenarios": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4_MAX",
+          "S4_MIN"
+        ],
+        "max_composite_absolute_change_pp": 1.5944743984470882,
+        "max_p90_absolute_change_pp": 0.49491167447564655,
+        "max_sign_reversals": 0,
+        "top10_overlap_membership_min": 10.0,
+        "top10_overlap_membership_max": 10.0,
+        "ranking_units": 143
+      },
+      "20": {
+        "scenarios": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4_MAX",
+          "S4_MIN"
+        ],
+        "max_composite_absolute_change_pp": 1.5522328964730825,
+        "max_p90_absolute_change_pp": 0.6189293645287971,
+        "max_sign_reversals": 0,
+        "top10_overlap_membership_min": 10.0,
+        "top10_overlap_membership_max": 10.0,
+        "ranking_units": 143
+      }
+    },
+    "notes": [
+      "Native Homes Victoria rental markets are not SA2s or suburbs.",
+      "Fixed-weight arithmetic proxies are not independently modelled SA2 median-rent forecasts.",
+      "Source components can be reused across mapped groups; mapped rows must not inflate native-market ranking counts.",
+      "Descriptive mapping-weight sensitivity only. Tested scenarios retained full 10/10 fractional Top-10 overlap and showed no composite growth-sign reversals; this is not forecast accuracy or an uncertainty interval."
+    ]
+  },
+  "preservation": {
+    "q1_q3": {
+      "q1_heading_source_sha256": "6a0fa74bc38fe2c5e11327639c36e187535c87381d0f67f03a2f4e11e81b0c5d",
+      "q1_code_source_sha256": "9e747bc329a09b3479d67dba940605d84f0deae7d153f21818ee82ffbeca2a1f",
+      "q3_heading_source_sha256": "c63caa9a267363aa19f27d757e4f9e1379d926e140bcb363440d53d322a90117",
+      "q3_code_source_sha256": "ac7f1e7cdad2874bbca12f9c975702ae13587651c575e6bfecd23f363f660666",
+      "q1_source_unchanged": true,
+      "q3_source_unchanged": true,
+      "q1_code_output_payload_sha256": "2d91eed47dff845a0e731e23e6e76e801e920475f941552caa79fc9be4e25366",
+      "q3_code_output_payload_sha256": "e718855c5180200ce80e4eb9f143ecbb7b1f313a01e4590d000c1ef064d81491",
+      "q1_q3_display_payloads_identical_to_pre_edit": true,
+      "q1_property_only_holdout_rmse_aud_week": 131.819703,
+      "q1_full_feature_holdout_rmse_aud_week": 114.63941,
+      "q3_top_three": [
+        "South Melbourne",
+        "Collingwood",
+        "Prahran - Windsor"
+      ],
+      "q3_candidate_count": 105,
+      "q1_saved_summary_sha256": "d022162da92d3d9022c8ec7b4e4ebfcefdc8c3ad4186b878a33ba77a849f5350",
+      "q3_saved_summary_sha256": "19edae387cba0f0930f423019727818bd9c34e3adc563b1c8e7943af24866656"
+    },
+    "original_damped_holt_outputs": {
+      "files": {
+        "sprint6_3year_forecasts.csv": {
+          "sha256": "c75389d74e55d6d984e8f453876d6a9860cc5098c50943d147938874227c50e1",
+          "bytes": 59768
+        },
+        "sprint6_5year_forecasts.csv": {
+          "sha256": "20e656001bdbe3acb230329a600886d41eb2a1b0e103d0354b623eed01d6ca3e",
+          "bytes": 59770
+        },
+        "sprint6_3year_top10.csv": {
+          "sha256": "9369a921a4e95f9f15beda72aaf34acbbc839ee108531a2eb42c00d3037a9149",
+          "bytes": 3578
+        },
+        "sprint6_5year_top10.csv": {
+          "sha256": "ab68b657b9fbb9bb5b3605201235398bac85a3609e2dffba566514f18741d405",
+          "bytes": 4222
+        },
+        "sprint6_horizon_comparison.csv": {
+          "sha256": "78a9ab5a809994fe7db499e90028829c9dbb37bfe4eff4ed7eab0f6e1e730424",
+          "bytes": 28543
+        }
+      },
+      "modified_by_task": false,
+      "notebook_still_displays_legacy_144_eligible_history_top10": true
+    },
+    "raw_sources_and_project_datasets_modified": false,
+    "stage7_or_stage7_1_to_10_research_packages_modified": false,
+    "research_report_modified": false,
+    "final_project_report_modified": false,
+    "presentation_modified": false,
+    "maps_modified_or_generated": false,
+    "speaker_notes_added": false
+  },
+  "portability": {
+    "new_q2_cells_reference_only_project_local_package": true,
+    "private_codex_absolute_path_dependency_found_in_notebook": false,
+    "other_notebook_dependencies": "Existing project-local Sprint 6 cache or authorised upstream processed-data bundle is still required by the pre-existing shared setup; a clean clone may need those local outputs restored."
+  },
+  "submission_consistency_impact": [
+    {
+      "file": "C:\\Users\\86180\\Desktop\\Applied Data Science\\project-2-real-estate\\README.md",
+      "status": "not modified; Q2 section lines 334-355 describes the overall five-year objective and saved forecast outputs but does not identify Ridge21/Ridge18 as newly registered research candidates or distinguish them from the legacy Damped Holt production scenario."
+    },
+    {
+      "file": "C:\\Users\\86180\\Downloads\\MAST30034_Applied Data Science_Project2_Victoria_Rental_Report.pdf",
+      "status": "not modified; 9-page October 2026 report still calls Damped Holt the Q2 scenario and reports Swan Hill 13.0%/16.2% on pages 1 and 5; page 6 has the older horizon-validation summary."
+    },
+    {
+      "file": "C:\\Users\\86180\\Desktop\\Applied Data Science\\MAST30034_Final_Working.pptx",
+      "status": "not modified; 11 slides, but automated PPTX text extraction found zero text-bearing shapes, so its exact visible Q2 wording could not be confirmed."
+    },
+    {
+      "files": [
+        "C:\\Users\\86180\\Downloads\\Victoria rental decisions (1).pdf",
+        "C:\\Users\\86180\\Downloads\\Victoria rental decisions.pdf"
+      ],
+      "status": "not modified; both local slide-PDF exports have 9 pages and contain the earlier Damped Holt Q2 results (144 eligible histories). Their exact relationship to the current 11-slide editable PPTX is unverified; inspect/update the presentation separately if these exports represent its current content."
+    }
+  ],
+  "remaining_uncertainties": [
+    "No genuine prospective accuracy is available yet; 2028 Q3 and 2030 Q3 targets remain future.",
+    "Historical backtests use revised data and overlapping windows; true origin-time publication vintages are incomplete.",
+    "The recorded 2026-02-20 resource release does not establish first-known availability of each source value.",
+    "No model has demonstrated reliable future Top-10 selection; Ridge forecasts are research candidates, not approved deployment outputs.",
+    "README, final report and possibly presentation materials need separate consistency revisions if the revised notebook is to be the formal submission source."
+  ],
+  "git_status": {
+    "write_operations_performed": false,
+    "operations_used": [
+      "read-only git status --short --branch"
+    ],
+    "before": {
+      "branch": "main...origin/main",
+      "status_lines": 56,
+      "summary": "The notebook and Sprint 6 processed-data directory were already untracked; the workspace already contained unrelated dirty/untracked files. The raw before text/hash was not retained."
+    },
+    "after": {
+      "branch": "main...origin/main",
+      "status_lines": 56,
+      "status_sha256": "96dbbbbda45d290f375ab43521f36afc93d62ac564b9e39b1eb06dc57139b445",
+      "relevant_entries": [
+        "?? data/processed/sprint6/",
+        "?? notebooks/06_sprint6_final_results.ipynb"
+      ]
+    }
+  }
+}

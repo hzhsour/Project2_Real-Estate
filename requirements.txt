@@ -7,3 +7,5 @@ jupyter
 nbconvert
 openpyxl
 geopandas
+scikit-learn
+matplotlib

@@ -1,0 +1,480 @@
+{
+  "schema_version": 1,
+  "purpose": "Portable copy of frozen, registered Q2 research forecasts for offline notebook display and validation. No model fitting occurs in the notebook.",
+  "forecast_issue": {
+    "issued_at": "2026-10-16T15:30:02.627196+11:00",
+    "issue_classification": "TIMESTAMPED_POST_ORIGIN_RESEARCH_FORECAST_USING_LAGGED_SOURCE_DATA",
+    "protocol_id": "stage6_q2_candidates_2026-10-16_v1",
+    "data_reference_period_end": "2025-09-30",
+    "information_cutoff": "2025-09-30",
+    "source_recorded_release_date": "2026-02-20",
+    "source_first_known_public_availability": "UNKNOWN; not inferred from resource metadata or the current workbook timestamp.",
+    "population_id": "homes_victoria_2025q3_complete_history_native_145_v1",
+    "population_sha256": "2cfc9fda7d81c96f9fa0fc2fe66fe85a4354d4bbac5d5120e44ddae1b7d330b1",
+    "native_market_count": 145,
+    "target_definition": "100 * (rent_at_t_plus_h / rent_at_t - 1); cumulative percentage growth."
+  },
+  "models": {
+    "3y": {
+      "candidate_id": "origin_centred_ridge21_12q",
+      "horizon_quarters": 12,
+      "target_end_date": "2028-09-30",
+      "features": 21,
+      "alpha": 100.0,
+      "scaler": "StandardScaler fitted inside the training-only Pipeline; no imputation.",
+      "training_window": "expanding annual Q3 cohorts, all eligible prior cohorts with matured labels",
+      "label_embargo_quarters": 1,
+      "macro_anchor": "mean per-market full-history project-specific OLS/SES Theta approximation growth",
+      "residual_rule": "training-origin-cohort mean centring; predicted residuals re-centred to cross-market mean zero before adding macro anchor",
+      "file": "ridge21_3y_forecast.csv",
+      "sha256": "7028dfa7f8f5f85ac9d44453739b761ab665004a0b72a2a94078473109a77e78",
+      "row_count": 145,
+      "top10": [
+        {
+          "rank": 1,
+          "market_id": "Hamilton",
+          "predicted_growth_pct": 12.932781858678194
+        },
+        {
+          "rank": 2,
+          "market_id": "Ballarat",
+          "predicted_growth_pct": 10.317147354622627
+        },
+        {
+          "rank": 3,
+          "market_id": "Horsham",
+          "predicted_growth_pct": 9.537219521832597
+        },
+        {
+          "rank": 4,
+          "market_id": "Portland",
+          "predicted_growth_pct": 9.057651305630515
+        },
+        {
+          "rank": 5,
+          "market_id": "Wendouree-Alfredton",
+          "predicted_growth_pct": 8.846857992251957
+        },
+        {
+          "rank": 6,
+          "market_id": "Sale-Maffra",
+          "predicted_growth_pct": 8.52470612603675
+        },
+        {
+          "rank": 7,
+          "market_id": "Mount Clear-Buninyong",
+          "predicted_growth_pct": 8.4633250780102
+        },
+        {
+          "rank": 8,
+          "market_id": "Ocean Grove-Barwon Heads",
+          "predicted_growth_pct": 8.06984421354687
+        },
+        {
+          "rank": 9,
+          "market_id": "Wanagaratta",
+          "predicted_growth_pct": 8.063750385355386
+        },
+        {
+          "rank": 10,
+          "market_id": "Benalla",
+          "predicted_growth_pct": 7.404661931871495
+        }
+      ],
+      "growth_summary": {
+        "mean_pct": -1.8031144938772627,
+        "median_pct": -3.1854832559223314,
+        "min_pct": -11.787446049084055,
+        "max_pct": 12.932781858678194,
+        "negative_count": 103,
+        "feature_domain_warning_markets": 145
+      },
+      "csv_candidate": "ridge21",
+      "issue_id": "q2-stage7-20261016T153002_a38bff6679e1-ridge21-12q"
+    },
+    "5y": {
+      "candidate_id": "origin_centred_ridge18_20q",
+      "horizon_quarters": 20,
+      "target_end_date": "2030-09-30",
+      "features": 18,
+      "alpha": 100.0,
+      "scaler": "StandardScaler fitted inside the training-only Pipeline; no imputation.",
+      "training_window": "expanding annual Q3 cohorts, all eligible prior cohorts with matured labels",
+      "label_embargo_quarters": 1,
+      "macro_anchor": "mean per-market full-history Drift growth",
+      "residual_rule": "training-origin-cohort mean centring; predicted residuals re-centred to cross-market mean zero before adding macro anchor",
+      "file": "ridge18_5y_forecast.csv",
+      "sha256": "6c289262973ea542fca709f2e965adaac1d9605faffc05b625be9f7c364cdf43",
+      "row_count": 145,
+      "top10": [
+        {
+          "rank": 1,
+          "market_id": "Hamilton",
+          "predicted_growth_pct": 29.15027380287353
+        },
+        {
+          "rank": 2,
+          "market_id": "Ballarat",
+          "predicted_growth_pct": 27.13507911358183
+        },
+        {
+          "rank": 3,
+          "market_id": "Horsham",
+          "predicted_growth_pct": 26.034548766959503
+        },
+        {
+          "rank": 4,
+          "market_id": "Portland",
+          "predicted_growth_pct": 25.70328651482157
+        },
+        {
+          "rank": 5,
+          "market_id": "Sale-Maffra",
+          "predicted_growth_pct": 25.119320057417227
+        },
+        {
+          "rank": 6,
+          "market_id": "Wendouree-Alfredton",
+          "predicted_growth_pct": 25.11823422371367
+        },
+        {
+          "rank": 7,
+          "market_id": "Mount Clear-Buninyong",
+          "predicted_growth_pct": 24.992292924366662
+        },
+        {
+          "rank": 8,
+          "market_id": "Seymour",
+          "predicted_growth_pct": 24.402761772671674
+        },
+        {
+          "rank": 9,
+          "market_id": "Wanagaratta",
+          "predicted_growth_pct": 24.34339171096854
+        },
+        {
+          "rank": 10,
+          "market_id": "Corio",
+          "predicted_growth_pct": 23.46549105097032
+        }
+      ],
+      "growth_summary": {
+        "mean_pct": 13.52493079047773,
+        "median_pct": 12.550888565715114,
+        "min_pct": -1.4773403635180915,
+        "max_pct": 29.15027380287353,
+        "negative_count": 1,
+        "feature_domain_warning_markets": 145
+      },
+      "csv_candidate": "ridge18",
+      "issue_id": "q2-stage7-20261016T153002_a38bff6679e1-ridge18-20q"
+    }
+  },
+  "historical_matched_validation": {
+    "source_file": "stage5_matched_metrics.csv",
+    "source_sha256": "9d969541dc0eb181ed6901b5a439ccdc1d47b70489f5e3631a6b357ae18d08a6",
+    "metric_unit": "percentage points of cumulative growth error; mean Top-10 hits are tie-aware hits per origin, not a percent accuracy.",
+    "sample": {
+      "markets": 145,
+      "origins": 11,
+      "rows": 1595,
+      "origins_first": "2010-09-30",
+      "origins_last": "2020-09-30",
+      "targets_overlap": true,
+      "revised_data_vintages": true
+    },
+    "rows": [
+      {
+        "horizon_quarters": 12,
+        "candidate_id": "damped_11",
+        "label": "Damped Holt",
+        "growth_rmse_pp": 9.80418433056258,
+        "growth_mae_pp": 7.568350274972746,
+        "mean_bias_pp": -5.181219523218925,
+        "mean_tie_aware_top10_hits_per_origin": 0.8787878787878788,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 12,
+        "candidate_id": "drift_full",
+        "label": "Full-history Drift",
+        "growth_rmse_pp": 8.244740935790551,
+        "growth_mae_pp": 6.233312912135042,
+        "mean_bias_pp": 1.8621714736702621,
+        "mean_tie_aware_top10_hits_per_origin": 0.9848484848484848,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 12,
+        "candidate_id": "low_rent_rank",
+        "label": "Lower starting-rent ranking baseline",
+        "growth_rmse_pp": null,
+        "growth_mae_pp": null,
+        "mean_bias_pp": null,
+        "mean_tie_aware_top10_hits_per_origin": 3.3969696969696965,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 12,
+        "candidate_id": "ridge18",
+        "label": "Origin-centred Ridge18",
+        "growth_rmse_pp": 7.52857624600683,
+        "growth_mae_pp": 5.292715853989243,
+        "mean_bias_pp": -2.2905162023338512,
+        "mean_tie_aware_top10_hits_per_origin": 2.8181818181818183,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 12,
+        "candidate_id": "ridge21",
+        "label": "Origin-centred Ridge21",
+        "growth_rmse_pp": 7.536336515016514,
+        "growth_mae_pp": 5.315157857156388,
+        "mean_bias_pp": -2.2905162023338517,
+        "mean_tie_aware_top10_hits_per_origin": 2.8181818181818183,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 12,
+        "candidate_id": "theta_full",
+        "label": "Project-specific Theta approximation (OLS linear trend + SES, 50:50)",
+        "growth_rmse_pp": 7.937413677016374,
+        "growth_mae_pp": 5.503559785128686,
+        "mean_bias_pp": -2.2905162023338517,
+        "mean_tie_aware_top10_hits_per_origin": 2.015151515151515,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 20,
+        "candidate_id": "damped_11",
+        "label": "Damped Holt",
+        "growth_rmse_pp": 19.107192111971933,
+        "growth_mae_pp": 15.072227038104861,
+        "mean_bias_pp": -14.103624648719567,
+        "mean_tie_aware_top10_hits_per_origin": 0.9090909090909091,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 20,
+        "candidate_id": "drift_full",
+        "label": "Full-history Drift",
+        "growth_rmse_pp": 13.275259773737229,
+        "growth_mae_pp": 10.18119746530839,
+        "mean_bias_pp": -0.9045647925305363,
+        "mean_tie_aware_top10_hits_per_origin": 0.8636363636363636,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 20,
+        "candidate_id": "low_rent_rank",
+        "label": "Lower starting-rent ranking baseline",
+        "growth_rmse_pp": null,
+        "growth_mae_pp": null,
+        "mean_bias_pp": null,
+        "mean_tie_aware_top10_hits_per_origin": 3.8227272727272723,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 20,
+        "candidate_id": "ridge18",
+        "label": "Origin-centred Ridge18",
+        "growth_rmse_pp": 12.724105811067856,
+        "growth_mae_pp": 9.76395544461368,
+        "mean_bias_pp": -0.9045647925305363,
+        "mean_tie_aware_top10_hits_per_origin": 2.8636363636363638,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 20,
+        "candidate_id": "ridge21",
+        "label": "Origin-centred Ridge21",
+        "growth_rmse_pp": 12.815303639470006,
+        "growth_mae_pp": 9.853162771414148,
+        "mean_bias_pp": -0.9045647925305363,
+        "mean_tie_aware_top10_hits_per_origin": 2.8181818181818183,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      },
+      {
+        "horizon_quarters": 20,
+        "candidate_id": "theta_full",
+        "label": "Project-specific Theta approximation (OLS linear trend + SES, 50:50)",
+        "growth_rmse_pp": 14.662485872981902,
+        "growth_mae_pp": 10.374720490111498,
+        "mean_bias_pp": -8.197552741047915,
+        "mean_tie_aware_top10_hits_per_origin": 1.9545454545454546,
+        "rows": 1595,
+        "origins": 11,
+        "markets": 145,
+        "first_origin": "2010-09-30",
+        "last_origin": "2020-09-30"
+      }
+    ],
+    "extra_2021_2022_3y_check": {
+      "source_file": "stage5_extra_12q_metrics.csv",
+      "source_sha256": "29f2f575e6ff714c35bc8d5df7ef977abe6606f3fc4977f8509fa63b1c84a962",
+      "sample": {
+        "markets": 145,
+        "origins": 2,
+        "rows": 290,
+        "first_origin": "2021-09-30",
+        "last_origin": "2022-09-30"
+      },
+      "ridge_rows": [
+        {
+          "candidate_id": "ridge18",
+          "growth_rmse_pp": 25.448329241912194,
+          "growth_mae_pp": 24.059094731789095,
+          "mean_bias_pp": -24.059094731789095,
+          "mean_tie_aware_top10_hits_per_origin": 3.5,
+          "rows": 290,
+          "origins": 2,
+          "markets": 145,
+          "first_origin": "2021-09-30",
+          "last_origin": "2022-09-30"
+        },
+        {
+          "candidate_id": "ridge21",
+          "growth_rmse_pp": 25.30514860316869,
+          "growth_mae_pp": 24.05997667465964,
+          "mean_bias_pp": -24.059094731789095,
+          "mean_tie_aware_top10_hits_per_origin": 5.5,
+          "rows": 290,
+          "origins": 2,
+          "markets": 145,
+          "first_origin": "2021-09-30",
+          "last_origin": "2022-09-30"
+        }
+      ],
+      "ridge21_macro_component_share_of_total_mse_pct": 90.42
+    }
+  },
+  "geographic_mapping": {
+    "source_file": "stage8_final_group_status_counts.csv",
+    "source_sha256": "b8db84f49cf686b22ed2af115603cc47ece5ccccb6abf418f2bea6f89b3b2fd6",
+    "production_group_count": 145,
+    "mutually_exclusive_status_counts": {
+      "DIRECT_SOURCE_ATTRIBUTION": 118,
+      "EXCLUDED_BY_ORIGINAL_ELIGIBILITY": 1,
+      "FIXED_WEIGHT_PROXY": 25,
+      "NO_REGISTERED_SOURCE_FORECAST": 1
+    },
+    "interpretation": [
+      "Native Homes Victoria rental markets are not SA2s or suburbs.",
+      "Fixed-weight arithmetic proxies are not independently modelled SA2 median-rent forecasts.",
+      "Source components can be reused across mapped groups; mapped rows must not inflate native-market ranking counts."
+    ]
+  },
+  "mapping_weight_sensitivity": {
+    "source_file": "stage8_1_overall_sensitivity_summary.csv",
+    "source_sha256": "eca8cc791142389271f49a5e5b301cf9e4d73a430cba6a0eb77c3328511cf685",
+    "scenarios": [
+      "S0",
+      "S1",
+      "S2",
+      "S3",
+      "S4_MIN",
+      "S4_MAX"
+    ],
+    "by_horizon": {
+      "12": {
+        "scenarios": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4_MAX",
+          "S4_MIN"
+        ],
+        "max_composite_absolute_change_pp": 1.5944743984470882,
+        "max_p90_absolute_change_pp": 0.49491167447564655,
+        "max_sign_reversals": 0,
+        "top10_overlap_membership_min": 10.0,
+        "top10_overlap_membership_max": 10.0,
+        "ranking_units": 143
+      },
+      "20": {
+        "scenarios": [
+          "S0",
+          "S1",
+          "S2",
+          "S3",
+          "S4_MAX",
+          "S4_MIN"
+        ],
+        "max_composite_absolute_change_pp": 1.5522328964730825,
+        "max_p90_absolute_change_pp": 0.6189293645287971,
+        "max_sign_reversals": 0,
+        "top10_overlap_membership_min": 10.0,
+        "top10_overlap_membership_max": 10.0,
+        "ranking_units": 143
+      }
+    },
+    "interpretation": "Descriptive mapping-weight sensitivity only. Tested scenarios retained full 10/10 fractional Top-10 overlap and showed no composite growth-sign reversals; this is not forecast accuracy or an uncertainty interval."
+  },
+  "reliability_and_vintage": {
+    "later_3y_origins": "At the 2021-09-30 and 2022-09-30 origins, Ridge21 RMSE is 25.305 pp and bias is -24.059 pp. Stage 9 decomposition attributed 90.42% of this error-squared to the common macro component.",
+    "feature_shift": "The statewide_median_rent feature is outside its historical training range for all 145 markets; under fixed linear residual centring its common contribution approximately cancels, but the warning remains. Other market-specific out-of-range features and within-range shifts still matter.",
+    "feature_shift_markets": 145,
+    "archive_end": "2025-09-30",
+    "recorded_source_release_date": "2026-02-20",
+    "first_known_public_availability": "UNKNOWN; do not infer from recorded resource release or metadata dates.",
+    "official_release_check_status": "NO_NEW_COMPATIBLE_SOURCE_CONFIRMED",
+    "official_release_check_as_of": "2026-10-16T18:30:02+11:00",
+    "latest_compatible_period_listed": "2025-09-30",
+    "target_maturity": "Both registered targets (2028-09-30 and 2030-09-30) remain future; Stage 9 synthetic pipeline tests do not establish forecast accuracy."
+  },
+  "source_evidence_hashes": {
+    "stage7_manifest_sha256": "b6d5498988db0628e9a475ca5915783f4ea04329a2bdf4f36132be04242e35e2",
+    "stage7_ledger_sha256": "a998937e7bdad5984577fec339b1dd4cc38350d4aea4f6728c74e79f8aa7a220",
+    "stage7_ridge21_config_sha256": "4409cf69f7c81ad2fd265218cf90115561cddec6f9573e6837ad8e7d9c888958",
+    "stage7_ridge18_config_sha256": "9a57b2784b3c291dfcb3c50f9a831435783c3273d9a70735cdb6792cee1473c8",
+    "stage8_1_top10_summary_sha256": "9971ae37f87c61490f301fa05db189642d0b3f16b8e4da1ce5f113631e8e9a17",
+    "stage9_feature_shift_sha256": "a052edad6ca26dcf2c7f9dd620339dc44f0aae351f4a5d41fcee3cc57b1b8469",
+    "stage10_official_release_receipt_sha256": "d7abf667750669279da9ac7ed757bf50c3560fd50d140f828b22403dc31b7574"
+  },
+  "notebook_execution_dependency": "Only the files in this project-local package are runtime dependencies for the newly integrated Q2 registered predictions. The research directories under the user profile are provenance evidence, not runtime dependencies."
+}

@@ -1,0 +1,3 @@
+# Frozen Q2 package hashes cover exact bytes, including original line endings.
+data/processed/sprint6/q2_registered_research/*.csv -text
+data/processed/sprint6/q2_registered_research/*.json -text
